@@ -1,0 +1,12 @@
+{
+	"extends": "@rocketseat/eslint-config/react",
+	"prettier/prettier": [
+		"error",
+		{
+		  "endOfLine": "auto"
+		}
+	  ]
+}
+
+// testar: npx eslint src --ext .ts,.tsx
+// arrumar: npx eslint src --ext .ts,.tsx --fix
