@@ -28,18 +28,18 @@ export function cyclesReducer (state: CyclesState, action: any) {
 		case ActionTypes.INTERRUPT_CURRENT_CYCLE: 
 
 			// encontrar index do item que será alterado
-			const currentCycleIndex = state.cycles.findIndex (cycle => {
+			const currentCycleIndexi = state.cycles.findIndex (cycle => {
 				return cycle.id === state.activeCycleId
 			})
 			// caso não houver ciclo ativo (e a ação de interromper ciclo for acionada)
 			// findIndex retorna -1 caso não conseguir encontrar index
-			if (currentCycleIndex < 0) {
+			if (currentCycleIndexi < 0) {
 				return state
 			}
 
 			return produce(state, draft => {
 					draft.activeCycleId = null
-					draft.cycles[currentCycleIndex].interruptedDate = new Date()
+					draft.cycles[currentCycleIndexi].interruptedDate = new Date()
 				})
 		
 		case ActionTypes.MARK_CURRENT_CYCLE_AS_COMPLETED:
@@ -48,7 +48,7 @@ export function cyclesReducer (state: CyclesState, action: any) {
 				return cycle.id === state.activeCycleId
 			})
 			
-			if (currentCycleIndexi < 0) {
+			if (currentCycleIndex < 0) {
 				return state
 			}
 
