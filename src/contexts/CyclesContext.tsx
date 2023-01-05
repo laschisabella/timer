@@ -75,7 +75,6 @@ export function CyclesContextProvider({ children }: CyclesContextProviderProps) 
 
 	// Salvar informações no storage do navegador
 	useEffect (() => {
-		
 		const stateJSON = JSON.stringify(cyclesState)
 		// salva no local storage ("@timer:cycles-state-1.0.0" para especificar bem o que é guardado)
 		localStorage.setItem('@timer:cycles-state-1.0.0', stateJSON)

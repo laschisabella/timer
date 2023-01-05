@@ -18,7 +18,6 @@ interface CyclesState {
 export function cyclesReducer (state: CyclesState, action: any) {
 	switch (action.type) {
 
-		// Modificação 1: Adicionar ciclo
 		case ActionTypes.ADD_NEW_CYCLE:
 			// lib immer permite tratar state como mutavel
 			return produce(state, draft => {
@@ -26,8 +25,7 @@ export function cyclesReducer (state: CyclesState, action: any) {
 				draft.activeCycleId = action.payload.newCycle.id
 			})
 		
-		// Modificação 2: Interromper ciclo
-		case ActionTypes.INTERRUPT_CURRENT_CYCLE:
+		case ActionTypes.INTERRUPT_CURRENT_CYCLE: 
 
 			// encontrar index do item que será alterado
 			const currentCycleIndex = state.cycles.findIndex (cycle => {
@@ -44,7 +42,6 @@ export function cyclesReducer (state: CyclesState, action: any) {
 					draft.cycles[currentCycleIndex].interruptedDate = new Date()
 				})
 		
-		// Modificação 3: Concluir ciclo
 		case ActionTypes.MARK_CURRENT_CYCLE_AS_COMPLETED:
 			
 			const currentCycleIndexi = state.cycles.findIndex (cycle => {
